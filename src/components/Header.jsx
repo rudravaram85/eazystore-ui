@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket, faTags } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
+  const navLinkClass =
+    'text-center text-lg font-primary font-semibold text-primary py-2';
   return (
     <header className="header">
       <div className="container">
@@ -13,29 +15,49 @@ const Header = () => {
         <nav className="nav">
           <ul>
             <li>
-              <Link to="/home" className="nav-link">
+              <NavLink
+                to="/home"
+                className={({ isActive }) =>
+                  isActive ? `underline ${navLinkClass}` : navLinkClass
+                }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/about" className="nav-link">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? `underline ${navLinkClass}` : navLinkClass
+                }
+              >
                 About
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="nav-link">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? `underline ${navLinkClass}` : navLinkClass
+                }
+              >
                 contact
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/login" className="nav-link">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? `underline ${navLinkClass}` : navLinkClass
+                }
+              >
                 Login
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/cart" className="nav-link">
+              <NavLink to="/cart" className="nav-link">
                 <FontAwesomeIcon icon={faShoppingBasket} />
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
